@@ -1,5 +1,5 @@
 {
-    "name": "omniphx/forrest",
+    "name": "michakpl/forrest",
     "description": "Salesforce / Force.com REST API Client for Laravel 5",
     "license":"MIT",
     "keywords":["salesforce", "laravel", "rest", "force.com", "force"],
@@ -8,6 +8,12 @@
             "name": "Matthew Mitchener",
             "homepage": "http://mattmitchener.com",
             "email": "mattjmitchener@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Michal Groele",
+            "homepage": "https://michak.me",
+            "email": "mailme@michak.me",
             "role": "Developer"
         }
     ],

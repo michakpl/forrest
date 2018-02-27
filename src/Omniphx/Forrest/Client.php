@@ -187,10 +187,18 @@ abstract class Client
 
     private function handleRequest()
     {
-        $this->parameters['headers'] = $this->formatter->setHeaders();
+        if (isset($this->options['headers'])) {
+            $this->parameters['headers'] = array_merge($this->formatter->setHeaders(), $this->options['headers']);
+        } else {
+            $this->parameters['headers'] = $this->formatter->setHeaders();
+        }
 
         if (isset($this->options['body'])) {
-            $this->parameters['body'] = $this->formatter->setBody($this->options['body']);
+            if (isset($this->options['format']) && $this->options['format'] != 'json') {
+                $this->parameters['body'] = $this->options['body'];
+            } else {
+                $this->parameters['body'] = $this->formatter->setBody($this->options['body']);
+            }
         }
 
         try {
