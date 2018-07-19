@@ -207,7 +207,11 @@ abstract class Client
             $this->assignExceptions($ex);
         }
 
-        $formattedResponse = $this->formatter->formatResponse($response);
+        if (isset($this->options['format']) && $this->options['format'] == 'csv') {
+            $formattedResponse = $response->getBody()->getContents();
+        } else {
+            $formattedResponse = $this->formatter->formatResponse($response);
+        }
 
         $this->event->fire('forrest.response', [$formattedResponse]);
 
